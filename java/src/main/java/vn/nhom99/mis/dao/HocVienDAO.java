@@ -5,8 +5,9 @@ import vn.nhom99.mis.model.HocVien;
 
 import java.util.List;
 
-public class HocVienDAO{
-    public List<HocVien> findAll(){
-        return KhoDuLieu.DS_HOC_VIEN;
-    }
+/** Lớp trung gian lấy dữ liệu HocVien từ kho dữ liệu. */
+public class HocVienDAO {
+    private final KhoDuLieu kho;
+    public HocVienDAO(KhoDuLieu kho) { this.kho = kho; }
+    public List<HocVien> findAll() { return kho.getHocViens(); }
 }

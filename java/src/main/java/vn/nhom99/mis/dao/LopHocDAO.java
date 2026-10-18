@@ -5,8 +5,9 @@ import vn.nhom99.mis.model.LopHoc;
 
 import java.util.List;
 
-public class LopHocDAO{
-    public List<LopHoc> findAll(){
-        KhoDuLieu.DS_LOP_HOC;
-    }
+/** Lớp trung gian lấy dữ liệu LopHoc từ kho dữ liệu. */
+public class LopHocDAO {
+    private final KhoDuLieu kho;
+    public LopHocDAO(KhoDuLieu kho) { this.kho = kho; }
+    public List<LopHoc> findAll() { return kho.getLopHocs(); }
 }

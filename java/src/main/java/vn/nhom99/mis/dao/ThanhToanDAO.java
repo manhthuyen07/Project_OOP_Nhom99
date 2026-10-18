@@ -5,8 +5,9 @@ import vn.nhom99.mis.model.ThanhToan;
 
 import java.util.List;
 
-public class ThanhToanDAO{
-    public List<ThanhToan> findAll(){
-        return KhoDuLieu.DS_THANH_TOAN;
-    }
+/** Lớp trung gian lấy dữ liệu ThanhToan từ kho dữ liệu. */
+public class ThanhToanDAO {
+    private final KhoDuLieu kho;
+    public ThanhToanDAO(KhoDuLieu kho) { this.kho = kho; }
+    public List<ThanhToan> findAll() { return kho.getThanhToans(); }
 }

@@ -5,8 +5,9 @@ import vn.nhom99.mis.model.GiaSu;
 
 import java.util.List;
 
-public class GiaSuDAO{
-    public List<GiaSu> findAll(){
-        return KhoDuLieu.DS_GIA_SU;
-    }
+/** Lớp trung gian lấy dữ liệu GiaSu từ kho dữ liệu. */
+public class GiaSuDAO {
+    private final KhoDuLieu kho;
+    public GiaSuDAO(KhoDuLieu kho) { this.kho = kho; }
+    public List<GiaSu> findAll() { return kho.getGiaSus(); }
 }

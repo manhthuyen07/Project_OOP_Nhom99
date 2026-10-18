@@ -1,14 +1,27 @@
 package vn.nhom99.mis.data;
 
 import vn.nhom99.mis.model.*;
+
+import java.util.Collections;
 import java.util.List;
 
-public final class KhoDuLieu{
-    public static final List<GiaSu> DS_GIA_SU= DuLieuMau.taoGiaSu();
-    public static final List<HocVien> DS_HOC_VIEN= DuLieuMau.taoHocVien();
-    public static final List<lopHoc> DS_LOP_HOC= DuLieuMau.taoLopHoc(DS_GIA_SU);
-    public static final List<DangKy> DS_DANG_KY = DuLieuMau.taoDangKy(DS_HOC_VIEN,DS_LOPHOC);
-    public static final List<ThanhToan> DS_THANH_TOAN= DuLieuMau.taoThanhToan(DS_HOC_VIEN,DS_LOPHOC);
-
-    private KhoDuLieu(){}
+/** Kho dữ liệu trong bộ nhớ (thay cơ sở dữ liệu). List là unmodifiable, entity bất biến. */
+public final class KhoDuLieu {
+    private final List<GiaSu> giaSus;
+    private final List<HocVien> hocViens;
+    private final List<LopHoc> lopHocs;
+    private final List<DangKy> dangKys;
+    private final List<ThanhToan> thanhToans;
+    public KhoDuLieu() {
+        giaSus = Collections.unmodifiableList(DuLieuMau.giaSu());
+        hocViens = Collections.unmodifiableList(DuLieuMau.hocVien());
+        lopHocs = Collections.unmodifiableList(DuLieuMau.lopHoc(giaSus));
+        dangKys = Collections.unmodifiableList(DuLieuMau.dangKy(hocViens, lopHocs));
+        thanhToans = Collections.unmodifiableList(DuLieuMau.thanhToan(hocViens, lopHocs));
+    }
+    public List<GiaSu> getGiaSus() { return giaSus; }
+    public List<HocVien> getHocViens() { return hocViens; }
+    public List<LopHoc> getLopHocs() { return lopHocs; }
+    public List<DangKy> getDangKys() { return dangKys; }
+    public List<ThanhToan> getThanhToans() { return thanhToans; }
 }
