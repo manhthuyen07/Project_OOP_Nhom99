@@ -29,7 +29,6 @@ public final class TruyVan16_20 {
     }
 
     // Câu 16 - Đếm số lớp của từng gia sư
-    // groupingBy + counting đếm lớp theo mã gia sư; getOrDefault giữ gia sư chưa có lớp (0 lớp).
     public List<Row> cau16() {
         Map<String, Long> soLop = lopHocDAO.findAll().stream()
                 .collect(groupingBy(l -> l.getGiaSu().getMaGS(), counting()));
@@ -40,7 +39,6 @@ public final class TruyVan16_20 {
     }
 
     // Câu 17 - Tất cả học viên đang học các lớp do gia sư GS01 phụ trách
-    // flatMap: mỗi lớp của gia sư -> các học viên đăng ký lớp đó; distinct vì một học viên có thể học nhiều lớp của cùng gia sư.
     public List<Row> cau17() {
         String maGS = "GS01";
         return lopHocDAO.findAll().stream()
@@ -54,7 +52,6 @@ public final class TruyVan16_20 {
     }
 
     // Câu 18 - Học viên chưa đăng ký bất kỳ lớp nào
-    // Gom mã học viên đã đăng ký vào Set để kiểm tra nhanh, rồi filter những học viên không nằm trong Set.
     public List<Row> cau18() {
         Set<String> daDangKy = dangKyDAO.findAll().stream()
                 .map(dk -> dk.getHocVien().getMaHV()).collect(toSet());
@@ -65,7 +62,6 @@ public final class TruyVan16_20 {
     }
 
     // Câu 19 - Doanh thu theo tháng
-    // groupingBy theo YearMonth, TreeMap giữ thứ tự thời gian; reducing cộng BigDecimal trong mỗi tháng.
     public List<Row> cau19() {
         Map<YearMonth, BigDecimal> theoThang = thanhToanDAO.findAll().stream()
                 .collect(groupingBy(tt -> YearMonth.from(tt.getNgayThanhToan()), TreeMap::new,
@@ -75,7 +71,6 @@ public final class TruyVan16_20 {
     }
 
     // Câu 20 - Thống kê học phí: số lớp, thấp nhất, cao nhất, trung bình, tổng
-    // summaryStatistics tính một lần cả 5 giá trị. Học phí VND là số nguyên nên dùng mapToLong (longValueExact báo lỗi nếu có phần lẻ).
     public List<Row> cau20() {
         LongSummaryStatistics st = lopHocDAO.findAll().stream()
                 .mapToLong(l -> l.getHocPhi().longValueExact()).summaryStatistics();

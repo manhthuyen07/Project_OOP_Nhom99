@@ -5,7 +5,6 @@ import vn.nhom99.mis.model.DangKy;
 
 import java.util.List;
 
-/** Lớp trung gian lấy dữ liệu DangKy từ kho dữ liệu. */
 public class DangKyDAO {
     private final KhoDuLieu kho;
     public DangKyDAO(KhoDuLieu kho) { this.kho = kho; }

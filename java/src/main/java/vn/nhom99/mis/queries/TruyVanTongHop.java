@@ -8,10 +8,6 @@ import vn.nhom99.mis.util.Row;
 import java.util.*;
 import java.util.function.Supplier;
 
-/**
- * Tổng hợp các câu truy vấn. Hiện có câu 11-20 (Thành viên 2).
- * Khi ghép với Thành viên 1: thêm câu 1-10 vào TITLES, HEADERS và execute().
- */
 public final class TruyVanTongHop {
     public static final int CAU_DAU = 11;
     public static final int CAU_CUOI = 20;

@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
-/** Dữ liệu mẫu theo mục 3 báo cáo. Chỉ tồn tại trong bộ nhớ. */
 final class DuLieuMau {
     private DuLieuMau() { }
     static List<GiaSu> giaSu() {

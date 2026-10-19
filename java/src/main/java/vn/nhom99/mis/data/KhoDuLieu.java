@@ -5,7 +5,6 @@ import vn.nhom99.mis.model.*;
 import java.util.Collections;
 import java.util.List;
 
-/** Kho dữ liệu trong bộ nhớ (thay cơ sở dữ liệu). List là unmodifiable, entity bất biến. */
 public final class KhoDuLieu {
     private final List<GiaSu> giaSus;
     private final List<HocVien> hocViens;

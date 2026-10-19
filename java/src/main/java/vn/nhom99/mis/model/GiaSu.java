@@ -2,7 +2,6 @@ package vn.nhom99.mis.model;
 
 import java.math.BigDecimal;
 
-/** Thực thể bất biến: dữ liệu chỉ được thiết lập qua constructor. */
 public final class GiaSu {
     private final String maGS;
     private final String hoTen;

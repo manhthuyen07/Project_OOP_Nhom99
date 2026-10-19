@@ -2,7 +2,6 @@ package vn.nhom99.mis.model;
 
 import java.util.Objects;
 
-/** Thực thể bất biến. equals/hashCode theo mã học viên để distinct() hoạt động đúng. */
 public final class HocVien {
     private final String maHV;
     private final String hoTen;

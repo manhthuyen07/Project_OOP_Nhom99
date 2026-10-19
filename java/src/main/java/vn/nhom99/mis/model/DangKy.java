@@ -2,7 +2,6 @@ package vn.nhom99.mis.model;
 
 import java.time.LocalDate;
 
-/** Liên kết N-N giữa HocVien và LopHoc. */
 public final class DangKy {
     private final HocVien hocVien;
     private final LopHoc lopHoc;

@@ -2,7 +2,6 @@ package vn.nhom99.mis.model;
 
 import java.math.BigDecimal;
 
-/** Thực thể bất biến. giaSu thể hiện liên kết GiaSu 1 - N LopHoc. */
 public final class LopHoc {
     private final String maLop;
     private final String tenLop;

@@ -25,9 +25,7 @@ public final class TruyVan11_15 {
         dangKyDAO = new DangKyDAO(kho);
         thanhToanDAO = new ThanhToanDAO(kho);
     }
-
     // Câu 11 - Tính tổng tiền đã thanh toán
-    // map lấy số tiền, reduce cộng BigDecimal (identity ZERO trả 0 khi không có giao dịch). Tiền không dùng double.
     public List<Row> cau11() {
         BigDecimal tong = thanhToanDAO.findAll().stream()
                 .map(ThanhToan::getSoTien).reduce(BigDecimal.ZERO, BigDecimal::add);
@@ -35,7 +33,6 @@ public final class TruyVan11_15 {
     }
 
     // Câu 12 - Tính học phí trung bình của tất cả lớp học
-    // BigDecimal không có average(): lấy tổng chia số lớp, làm tròn 2 chữ số HALF_UP; không có lớp thì trả 0.
     public List<Row> cau12() {
         List<LopHoc> lopHocs = lopHocDAO.findAll();
         BigDecimal tong = lopHocs.stream().map(LopHoc::getHocPhi).reduce(BigDecimal.ZERO, BigDecimal::add);
@@ -45,7 +42,6 @@ public final class TruyVan11_15 {
     }
 
     // Câu 13 - Kiểm tra hệ thống có lớp đang mở (DANG_MO)
-    // anyMatch dừng ngay khi gặp phần tử đầu tiên thỏa; tương đương Any của LINQ.
     public List<Row> cau13() {
         boolean coLopDangMo = lopHocDAO.findAll().stream()
                 .anyMatch(l -> l.getTrangThai() == TrangThaiLop.DANG_MO);
@@ -53,7 +49,6 @@ public final class TruyVan11_15 {
     }
 
     // Câu 14 - Mọi lớp của gia sư GS01 đều có ít nhất 2 học viên?
-    // allMatch tương đương All của LINQ. Gia sư không có lớp nào thì allMatch trả true, nên in kèm số lớp để thấy rõ.
     public List<Row> cau14() {
         String maGS = "GS01";
         int toiThieu = 2;
@@ -69,7 +64,6 @@ public final class TruyVan11_15 {
     }
 
     // Câu 15 - Không có gia sư nào lương theo giờ vượt 300.000?
-    // noneMatch tương đương !Any; so sánh BigDecimal bằng compareTo, không dùng > hay equals.
     public List<Row> cau15() {
         BigDecimal mucLuong = new BigDecimal("300000");
         boolean khongAiVuot = giaSuDAO.findAll().stream()
