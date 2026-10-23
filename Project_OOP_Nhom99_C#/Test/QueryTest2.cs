@@ -33,13 +33,14 @@ public static class QueryTests
             [14] = new[] { "GS01\t2\t2\tCó" },
             [15] = new[] { "10\tCó" },
             [16] = new[]
-            {
-                "GS01\tNguyễn Văn An\t2",
-                "GS02\tTrần Thị Bình\t2",
-                "GS03\tLê Hoàng Cường\t2",
-                "GS04\tPhạm Thu Dung\t1",
-                "GS05\tVõ Minh Em\t0"
-            },
+        {
+            "HV01\tĐặng Gia Huy\t3",
+            "HV02\tNgô Bảo Châu\t2",
+            "HV03\tBùi Quang Khải\t2",
+            "HV05\tĐỗ Minh Nhật\t2",
+            "HV06\tLý Ngọc Oanh\t2",
+            "HV07\tPhan Anh Phúc\t2"
+        },
             [17] = new[]
             {
                 "HV01\tĐặng Gia Huy\t12/03/2010\t0912000001",
