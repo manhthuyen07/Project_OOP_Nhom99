@@ -1,7 +1,6 @@
 package vn.nhom99.mis.dao;
 import vn.nhom99.mis.data.KhoDuLieu;
 import vn.nhom99.mis.model.DangKy;
-import vn.nhom99.mis.model.DangKy;
 
 import  java.util.List;
 import java.util.Optional;

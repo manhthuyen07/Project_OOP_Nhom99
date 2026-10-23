@@ -22,6 +22,6 @@ public class HocVienDAO {
         return ds.add(h);
     }
     public boolean xoa (String ma){
-        return ds.stream().anyMatch(h -> h.getMaHocVien().equals(ma));
+        return ds.removeIf(h -> h.getMaHocVien().equals(ma));
     }
 }

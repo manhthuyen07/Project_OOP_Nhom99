@@ -20,11 +20,11 @@ public final class DuLieuMau {
 
     public static void nap(KhoDuLieu kho) {
         // ===== Gia sư =====
-        kho.getDsGiaSu().add(new GiaSu("GS01", "Nguyễn Văn An", "Toán", 5, "0901000001"));
-        kho.getDsGiaSu().add(new GiaSu("GS02", "Trần Thị Bình", "Tiếng Anh", 3, "0901000002"));
-        kho.getDsGiaSu().add(new GiaSu("GS03", "Lê Hoàng Cường", "Vật lý", 8, "0901000003"));
-        kho.getDsGiaSu().add(new GiaSu("GS04", "Phạm Thu Dung", "Toán", 2, "0901000004"));
-        kho.getDsGiaSu().add(new GiaSu("GS05", "Võ Minh Em", "Hóa học", 4, "0901000005"));
+        kho.getDsGiaSu().add(new GiaSu("GS01", "Nguyễn Văn An", "Toán", 5, "0901000001", 250000));
+        kho.getDsGiaSu().add(new GiaSu("GS02", "Trần Thị Bình", "Tiếng Anh", 3, "0901000002", 200000));
+        kho.getDsGiaSu().add(new GiaSu("GS03", "Lê Hoàng Cường", "Vật lý", 8, "0901000003", 350000));
+        kho.getDsGiaSu().add(new GiaSu("GS04", "Phạm Thu Dung", "Toán", 2, "0901000004", 150000));
+        kho.getDsGiaSu().add(new GiaSu("GS05", "Võ Minh Em", "Hóa học", 4, "0901000005", 220000));
 
         // ===== Học viên =====
         kho.getDsHocVien().add(new HocVien("HV01", "Đặng Gia Huy", LocalDate.of(2010, 3, 12), "Nam", "0912000001"));
