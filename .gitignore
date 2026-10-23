@@ -7,3 +7,10 @@ target/
 *.suo
 
 Project_OOP_Nhom99_Java/.git_backup/
+
+# C# build files
+csharp/**/bin/
+csharp/**/obj/
+
+# Build output
+out/
