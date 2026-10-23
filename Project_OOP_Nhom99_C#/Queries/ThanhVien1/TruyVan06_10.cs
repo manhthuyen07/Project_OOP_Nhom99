@@ -89,8 +89,7 @@ public class TruyVan06_10
         return tongTheoHocVien
                 .OrderByDescending(e => e.Value)
                 .Take(3)
-                .Select(e => (_hocVienDAO.TimTheoMa(e.Key)?.HoTen ?? e.Key, e.Value))
-                .DistinctBy(x => x.Item1)
+                .Select(e => (_hocVienDAO.TimTheoMa(e.Key)!.HoTen, e.Value))
                 .ToList();
     }
 }

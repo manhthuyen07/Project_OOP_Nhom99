@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Vn.Nhom99.Mis.Data;
-using Vn.Nhom99.Mis.Queries.ThanhVien1;
+using Nhom99.Mis.Data;
+using Nhom99.Mis.Queries.ThanhVien1;
 
-namespace Vn.Nhom99.Mis
+namespace Nhom99.Mis.Test
 {
     /// <summary>Chạy trực tiếp bằng Main, không cần framework test.</summary>
     public static class RegressionTest
@@ -44,8 +44,8 @@ namespace Vn.Nhom99.Mis
                     "Toán 12 Luyện thi\t3500000.0", "Toán 9 Cơ bản\t4000000.0",
                     "Vật lý 11\t4000000.0", "Vật lý 12 Nâng cao\t0.0"
                 },
-                [7] = new List<string> { "HV03", "HV05", "HV06", "HV08" },
-                [8] = new List<string> { "L01\t3", "L03\t3" },
+                [7] = new List<string> { "HV06", "HV08" },
+                [8] = new List<string> { "L03\t4" },
                 [9] = new List<string>
                 {
                     "Tiếng Anh\t3500000.0", "Toán\t2566666.6666666665", "Vật lý\t2750000.0"
@@ -64,6 +64,12 @@ namespace Vn.Nhom99.Mis
                 Console.WriteLine($"PASS câu {e.Key}");
             }
             Console.WriteLine("PASS tất cả câu 01-10.");
+
+            // Câu 11-20 (file QueryTest2.cs)
+            QueryTests.Run(kho);
+
+            // In kết quả đầy đủ cả 20 câu (xóa dòng này nếu không cần)
+            new Nhom99.Mis.Queries.TruyVanTongHop(kho).ChayTatCa();
         }
 
         /// <summary>Định dạng double giống Java: 4200000 -> "4200000.0", giữ nguyên phần thập phân khác.</summary>
@@ -87,29 +93,29 @@ namespace Vn.Nhom99.Mis
                 case 3:
                     return q1.Cau03_LopKemTenGiaSu().ToList();
                 case 4:
-                    // Lưu ý: kết quả phải giữ thứ tự chèn (xem ghi chú bên dưới)
+                    // Kết quả phải giữ thứ tự chèn
                     return q1.Cau04_SoLopMoiGiaSu()
-                        .Select(e => e.Key + "\t" + e.Value).ToList();
+                        .Select(e => e.HoTen + "\t" + e.SoLop).ToList();
                 case 5:
                     return q1.Cau05_HocVienDangKyMon("Toán")
                         .Select(h => h.MaHocVien).OrderBy(s => s, StringComparer.Ordinal).ToList();
                 case 6:
                     return q2.Cau06_DoanhThuTheoLop()
-                        .OrderBy(e => e.Key, StringComparer.Ordinal)
-                        .Select(e => e.Key + "\t" + Fmt(e.Value)).ToList();
+                        .OrderBy(e => e.TenLop, StringComparer.Ordinal)
+                        .Select(e => e.TenLop + "\t" + Fmt(e.DoanhThu)).ToList();
                 case 7:
                     return q2.Cau07_HocVienChuaThanhToan()
                         .Select(h => h.MaHocVien).OrderBy(s => s, StringComparer.Ordinal).ToList();
                 case 8:
                     return q2.Cau08_LopDongHocVienNhat()
-                        .Select(e => e.Key.MaLop + "\t" + e.Value)
+                        .Select(e => e.Lop.MaLop + "\t" + e.SoHocVien)
                         .OrderBy(s => s, StringComparer.Ordinal).ToList();
                 case 9:
                     return q2.Cau09_HocPhiTrungBinhTheoMon()
                         .Select(e => e.Key + "\t" + Fmt(e.Value)).ToList();
                 case 10:
                     return q2.Cau10_Top3HocVienDongNhieuNhat()
-                        .Select(e => e.Key + "\t" + Fmt(e.Value)).ToList();
+                        .Select(e => e.HoTen + "\t" + Fmt(e.TongTien)).ToList();
                 default:
                     throw new ArgumentException("Không có câu truy vấn " + cau);
             }

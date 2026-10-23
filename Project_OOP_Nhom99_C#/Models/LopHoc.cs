@@ -1,23 +1,32 @@
 namespace Nhom99.Mis.Model;
 
-/// <summary>Học viên. Khóa chính: MaHocVien.</summary>
-public class HocVien
+/// <summary>Lớp học. Khóa chính: MaLop. Khóa ngoại: MaGiaSu -> GiaSu.</summary>
+public class LopHoc
 {
-    public string MaHocVien { get; set; }
-    public string HoTen { get; set; }
-    public DateOnly NgaySinh { get; set; }
-    public string GioiTinh { get; set; }
-    public string SoDienThoai { get; set; }
+    public string MaLop { get; set; }
+    public string TenLop { get; set; }
+    public string MonHoc { get; set; }
+    public TrinhDo TrinhDo { get; set; }
+    public string MaGiaSu { get; set; }
+    public double HocPhi { get; set; }
+    public int SiSoToiDa { get; set; }
+    public DateOnly NgayBatDau { get; set; }
+    public TrangThaiLop TrangThai { get; set; }
 
-    public HocVien(string maHocVien, string hoTen, DateOnly ngaySinh, string gioiTinh, string soDienThoai)
+    public LopHoc(string maLop, string tenLop, string monHoc, TrinhDo trinhDo, string maGiaSu,
+                  double hocPhi, int siSoToiDa, DateOnly ngayBatDau, TrangThaiLop trangThai)
     {
-        MaHocVien = maHocVien;
-        HoTen = hoTen;
-        NgaySinh = ngaySinh;
-        GioiTinh = gioiTinh;
-        SoDienThoai = soDienThoai;
+        MaLop = maLop;
+        TenLop = tenLop;
+        MonHoc = monHoc;
+        TrinhDo = trinhDo;
+        MaGiaSu = maGiaSu;
+        HocPhi = hocPhi;
+        SiSoToiDa = siSoToiDa;
+        NgayBatDau = ngayBatDau;
+        TrangThai = trangThai;
     }
 
     public override string ToString()
-        => $"{MaHocVien} | {HoTen} | {DinhDang.Ngay(NgaySinh)} | {GioiTinh}";
+        => $"{MaLop} | {TenLop} | {MonHoc} | {TrinhDo.GetTen()} | {DinhDang.Tien(HocPhi)} | {TrangThai.GetTen()}";
 }
