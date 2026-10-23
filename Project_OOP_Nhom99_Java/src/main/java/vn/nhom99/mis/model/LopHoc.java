@@ -44,7 +44,7 @@ public class LopHoc {
     public TrinhDo getTrinhDo(){
         return TrinhDo;
     }
-    public void setTrinhDo(){
+    public void setTrinhDo(TrinhDo TrinhDo){
         this.TrinhDo = TrinhDo;
     }
     public String getMaGiaSu() {
@@ -75,7 +75,7 @@ public class LopHoc {
     public TrangThaiLop getTrangThai() {
         return TrangThai;
     }
-    public void setTrangThai() {
+    public void setTrangThai(TrangThaiLop TrangThai) {
         this.TrangThai = TrangThai;
     }
     @Override
