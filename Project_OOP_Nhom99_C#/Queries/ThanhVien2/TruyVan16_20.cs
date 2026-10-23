@@ -22,16 +22,19 @@ public sealed class TruyVan16_20
         _thanhToanDAO = new ThanhToanDAO(kho);
     }
 
-    // Câu 16 - Đếm số lớp của từng gia sư
+    // Câu 16 - Học viên đăng ký từ 2 lớp (khác nhau) trở lên, kèm số lớp,
+    // giảm dần theo số lớp rồi theo mã
     public List<Row> Cau16()
     {
-        var soLop = _lopHocDAO.GetAll()
-            .GroupBy(l => l.MaGiaSu)
-            .ToDictionary(g => g.Key, g => g.Count());
-        int Dem(GiaSu gs) => soLop.GetValueOrDefault(gs.MaGiaSu, 0);
-        return _giaSuDAO.GetAll()
-            .OrderByDescending(Dem).ThenBy(gs => gs.MaGiaSu, StringComparer.Ordinal)
-            .Select(gs => Row.Of(gs.MaGiaSu, gs.HoTen, Dem(gs))).ToList();
+        const int toiThieu = 2;
+        var soLop = _dangKyDAO.GetAll()
+            .GroupBy(dk => dk.MaHocVien)
+            .ToDictionary(g => g.Key, g => g.Select(dk => dk.MaLop).Distinct().Count());
+        int Dem(HocVien hv) => soLop.GetValueOrDefault(hv.MaHocVien, 0);
+        return _hocVienDAO.GetAll()
+            .Where(hv => Dem(hv) >= toiThieu)
+            .OrderByDescending(Dem).ThenBy(hv => hv.MaHocVien, StringComparer.Ordinal)
+            .Select(hv => Row.Of(hv.MaHocVien, hv.HoTen, Dem(hv))).ToList();
     }
 
     // Câu 17 - Học viên đang học các lớp của gia sư GS01
