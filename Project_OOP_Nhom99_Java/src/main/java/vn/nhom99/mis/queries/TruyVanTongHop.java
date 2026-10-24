@@ -76,8 +76,8 @@ public class TruyVanTongHop {
                 + coKhong(nhom3.cau14_TatCaLopDuHocVien("GS01", 2)));
         System.out.println("(với mức tối thiểu 3: " + coKhong(nhom3.cau14_TatCaLopDuHocVien("GS01", 3)) + ")");
 
-        tieuDe("Câu 15: Không có gia sư nào lương theo giờ vượt 300.000?");
-        System.out.println(nhom3.cau15_KhongCoGiaSuVuotLuong(300_000)
+        tieuDe("Câu 15: Không có gia sư nào trên 10 năm kinh nghiệm?");
+        System.out.println(nhom3.cau15_KhongCoGiaSuVuotKinhNghiem(10)
                 ? "Đúng (không ai vượt)" : "Sai (có gia sư vượt)");
 
         tieuDe("Câu 16: Học viên đăng ký từ 2 lớp trở lên");

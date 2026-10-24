@@ -49,7 +49,7 @@ public class TruyVan11_15 {
     }
 
     /**
-     * Câu 14: Mọi lớp của một gia sư đều có ít nhất {@code toiThieu} học viên? (allMatch)
+     * Câu 14: Mọi lớp của một gia sư đều có ít nhất { toiThieu} học viên? (allMatch)
      * Lưu ý: gia sư không có lớp nào thì allMatch trả true, nên dùng kèm {@link #soLopCuaGiaSu(String)}.
      */
     public boolean cau14_TatCaLopDuHocVien(String maGiaSu, int toiThieu) {
@@ -62,18 +62,16 @@ public class TruyVan11_15 {
         return lopCuaGiaSu(maGiaSu).size();
     }
 
-    /** Câu 15: Không có gia sư nào có lương theo giờ vượt mức cho trước? (noneMatch) */
-    public boolean cau15_KhongCoGiaSuVuotLuong(double mucLuong) {
+    /** Câu 15: Không có gia sư nào trên { mucKinhNghiem} năm kinh nghiệm? (noneMatch) */
+    public boolean cau15_KhongCoGiaSuVuotKinhNghiem(int mucKinhNghiem) {
         return giaSuDAO.getAll().stream()
-                .noneMatch(g -> g.getLuongGio() > mucLuong);
+                .noneMatch(g -> g.getSoNamKinhNghiem() > mucKinhNghiem);
     }
-
     private List<LopHoc> lopCuaGiaSu(String maGiaSu) {
         return lopHocDAO.getAll().stream()
                 .filter(l -> maGiaSu.equals(l.getMaGiaSu()))   // lớp chưa có gia sư (null) thì bỏ qua, không lỗi
                 .collect(Collectors.toList());
     }
-
     /** Số học viên (không trùng) đã đăng ký lớp. */
     private long demHocVien(LopHoc lop) {
         return dangKyDAO.getAll().stream()
