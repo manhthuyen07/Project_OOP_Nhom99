@@ -1,6 +1,5 @@
 namespace Nhom99.Mis.Model;
 
-/// <summary>Trình độ của lớp học.</summary>
 public enum TrinhDo
 {
     CoBan,

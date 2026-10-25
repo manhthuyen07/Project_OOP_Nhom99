@@ -1,6 +1,5 @@
 namespace Nhom99.Mis.Model;
 
-/// <summary>Trạng thái của lớp học.</summary>
 public enum TrangThaiLop
 {
     DangMo,

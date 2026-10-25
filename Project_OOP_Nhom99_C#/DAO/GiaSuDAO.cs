@@ -14,7 +14,6 @@ public class GiaSuDAO
 
     public List<GiaSu> GetAll() => _ds;
 
-    /// <summary>Trả về null nếu không tìm thấy (thay cho Optional trong Java).</summary>
     public GiaSu? TimTheoMa(string ma) => _ds.FirstOrDefault(x => x.MaGiaSu == ma);
 
     public bool Them(GiaSu x)

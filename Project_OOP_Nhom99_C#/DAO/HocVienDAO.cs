@@ -14,7 +14,6 @@ public class HocVienDAO
 
     public List<HocVien> GetAll() => _ds;
 
-    /// <summary>Trả về null nếu không tìm thấy (thay cho Optional trong Java).</summary>
     public HocVien? TimTheoMa(string ma) => _ds.FirstOrDefault(x => x.MaHocVien == ma);
 
     public bool Them(HocVien x)

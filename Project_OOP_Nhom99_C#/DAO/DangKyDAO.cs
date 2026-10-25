@@ -14,7 +14,6 @@ public class DangKyDAO
 
     public List<DangKy> GetAll() => _ds;
 
-    /// <summary>Trả về null nếu không tìm thấy (thay cho Optional trong Java).</summary>
     public DangKy? TimTheoMa(string ma) => _ds.FirstOrDefault(x => x.MaDangKy == ma);
 
     public bool Them(DangKy x)

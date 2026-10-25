@@ -1,6 +1,5 @@
 namespace Nhom99.Mis.Model;
 
-/// <summary>Thanh toán học phí. Khóa chính: MaThanhToan. Khóa ngoại: MaDangKy -> DangKy.</summary>
 public class ThanhToan
 {
     public string MaThanhToan { get; set; }

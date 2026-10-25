@@ -2,7 +2,6 @@ using Nhom99.Mis.Model;
 
 namespace Nhom99.Mis.Data;
 
-/// <summary>Kho dữ liệu trong bộ nhớ (thay cho cơ sở dữ liệu). Dùng chung bởi các DAO.</summary>
 public class KhoDuLieu
 {
     private static KhoDuLieu? _instance;

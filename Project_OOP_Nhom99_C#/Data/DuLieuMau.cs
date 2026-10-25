@@ -2,20 +2,16 @@ using Nhom99.Mis.Model;
 
 namespace Nhom99.Mis.Data;
 
-/// <summary>
-/// Dữ liệu mẫu. Được thiết kế để cả 10 câu truy vấn đều có kết quả, gồm cả các trường hợp biên:
-/// gia sư chưa dạy lớp nào (GS05), học viên chưa đóng tiền (HV06, HV08), lớp đã hủy (L07) chưa có ai đăng ký.
-/// </summary>
 public static class DuLieuMau
 {
     public static void Nap(KhoDuLieu kho)
     {
         // ===== Gia sư =====
-        kho.DsGiaSu.Add(new GiaSu("GS01", "Nguyễn Văn An", "Toán", 5, "0901000001"));
-        kho.DsGiaSu.Add(new GiaSu("GS02", "Trần Thị Bình", "Tiếng Anh", 3, "0901000002"));
-        kho.DsGiaSu.Add(new GiaSu("GS03", "Lê Hoàng Cường", "Vật lý", 8, "0901000003"));
-        kho.DsGiaSu.Add(new GiaSu("GS04", "Phạm Thu Dung", "Toán", 2, "0901000004"));
-        kho.DsGiaSu.Add(new GiaSu("GS05", "Võ Minh Em", "Hóa học", 4, "0901000005"));
+        kho.DsGiaSu.Add(new GiaSu("GS01", "Nguyễn Văn An", "Toán", 5, "0901000001", 250000));
+        kho.DsGiaSu.Add(new GiaSu("GS02", "Trần Thị Bình", "Tiếng Anh", 3, "0901000002", 200000));
+        kho.DsGiaSu.Add(new GiaSu("GS03", "Lê Hoàng Cường", "Vật lý", 8, "0901000003", 350000));
+        kho.DsGiaSu.Add(new GiaSu("GS04", "Phạm Thu Dung", "Toán", 2, "0901000004", 150000));
+        kho.DsGiaSu.Add(new GiaSu("GS05", "Võ Minh Em", "Hóa học", 4, "0901000005", 220000));
 
         // ===== Học viên =====
         kho.DsHocVien.Add(new HocVien("HV01", "Đặng Gia Huy", new DateOnly(2010, 3, 12), "Nam", "0912000001"));

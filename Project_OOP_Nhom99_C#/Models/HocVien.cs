@@ -1,6 +1,5 @@
 namespace Nhom99.Mis.Model;
 
-/// <summary>Học viên. Khóa chính: MaHocVien.</summary>
 public class HocVien
 {
     public string MaHocVien { get; set; }

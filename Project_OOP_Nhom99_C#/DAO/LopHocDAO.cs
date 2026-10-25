@@ -14,7 +14,6 @@ public class LopHocDAO
 
     public List<LopHoc> GetAll() => _ds;
 
-    /// <summary>Trả về null nếu không tìm thấy (thay cho Optional trong Java).</summary>
     public LopHoc? TimTheoMa(string ma) => _ds.FirstOrDefault(x => x.MaLop == ma);
 
     public bool Them(LopHoc x)

@@ -14,7 +14,6 @@ public class ThanhToanDAO
 
     public List<ThanhToan> GetAll() => _ds;
 
-    /// <summary>Trả về null nếu không tìm thấy (thay cho Optional trong Java).</summary>
     public ThanhToan? TimTheoMa(string ma) => _ds.FirstOrDefault(x => x.MaThanhToan == ma);
 
     public bool Them(ThanhToan x)

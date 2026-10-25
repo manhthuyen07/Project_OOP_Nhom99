@@ -6,7 +6,6 @@ using Nhom99.Mis.Util;
 
 namespace Nhom99.Mis.Queries;
 
-/// <summary>Chạy và in kết quả tất cả câu truy vấn 01-20.</summary>
 public class TruyVanTongHop
 {
     private readonly TruyVan01_05 _nhom1;
@@ -74,8 +73,8 @@ public class TruyVanTongHop
         TieuDe("Câu 15: Không có gia sư nào trên 10 năm kinh nghiệm");
         ConsoleTable.Print("MucKinhNghiem|KetQua", _nhom3.Cau15());
 
-        TieuDe("Câu 16: Số lớp của từng gia sư");
-        ConsoleTable.Print("MaGS|HoTen|SoLop", _nhom4.Cau16());
+        TieuDe("Câu 16: Học viên đăng ký từ 2 lớp trở lên");
+        ConsoleTable.Print("MaHV|HoTen|SoLop", _nhom4.Cau16());
 
         TieuDe("Câu 17: Học viên đang học lớp của gia sư GS01");
         ConsoleTable.Print("MaHV|HoTen|NgaySinh|SDT", _nhom4.Cau17());

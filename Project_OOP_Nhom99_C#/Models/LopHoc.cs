@@ -1,6 +1,5 @@
 namespace Nhom99.Mis.Model;
 
-/// <summary>Lớp học. Khóa chính: MaLop. Khóa ngoại: MaGiaSu -> GiaSu.</summary>
 public class LopHoc
 {
     public string MaLop { get; set; }

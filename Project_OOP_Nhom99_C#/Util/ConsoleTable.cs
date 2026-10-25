@@ -29,6 +29,5 @@ public static class ConsoleTable
                 v is double d ? d.ToString("#,##0.##", Vi) : Raw(v))));
         }
         if (rows.Count == 0) Console.WriteLine("(Không có dữ liệu)");
-        Console.WriteLine("Số dòng: " + rows.Count);
     }
 }

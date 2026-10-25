@@ -1,6 +1,5 @@
 namespace Nhom99.Mis.Model;
 
-/// <summary>Đăng ký học. Khóa chính: MaDangKy. Khóa ngoại: MaHocVien -> HocVien, MaLop -> LopHoc.</summary>
 public class DangKy
 {
     public string MaDangKy { get; set; }
